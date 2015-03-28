@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+require __DIR__.'/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use \PhotoSort\task\dirCopyCommand;
+use \PhotoSort\task\dirRenameCommand;
+
+
+$appVersion = '1.0.0-DEV';
+
+$app = new Application('Photo Sort', $appVersion);
+$app->add(new dirCopyCommand());
+$app->add(new dirRenameCommand());
+$app->run();

@@ -1,0 +1,13 @@
+# -- Composer
+/vendor/
+composer.lock
+
+
+# -- IDE PhpStorm
+.idea/
+
+
+# -- Linux 
+*~
+
+

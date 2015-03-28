@@ -1,0 +1,30 @@
+{
+    "name": "ginsen/photosort",
+    "description": "A small app to rename images files by created date",
+    "license": "MIT",
+    "keywords": ["console", "filesystem", "php"],
+    "authors": [
+        {
+            "name": "J. Ginés Hernández G.",
+            "email": "jgines@gmail.com",
+            "homepage": "https://github.com/ginsen/photosort"
+        }
+    ],
+    "require": {
+        "symfony/console": "2.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.5.0"
+    },
+    "autoload": {
+        "psr-4": { "PhotoSort\\": "src/PhotoSort/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "bin": [
+        "photosort"
+    ]
+}
