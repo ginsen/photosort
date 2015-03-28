@@ -102,7 +102,7 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Copy directory recursive
-     * 
+     *
      * @param string $src
      * @param string $dst
      */

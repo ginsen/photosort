@@ -1,6 +1,11 @@
 <?php
 namespace PhotoSort\lib;
 
+/**
+ * Class PhotoSort
+ *
+ * @package PhotoSort\lib
+ */
 class PhotoSort
 {
     const FORMAT_TYPE_TIMESTAMP = 1;
