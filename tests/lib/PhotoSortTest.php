@@ -7,7 +7,7 @@ use PhotoSort\lib\PhotoSort;
  */
 class PhotoSortTest extends \PHPUnit_Framework_TestCase
 {
-    protected $testDir = '/tmp/foo';
+    protected $testDir;
 
 
     /**
@@ -15,6 +15,8 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
+        $this->testDir = sys_get_temp_dir() . '/foo';
+
         if (is_dir($this->testDir)) {
             $this->removeDir($this->testDir);
         }
@@ -33,11 +35,23 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function testDestinyPath()
+    {
+        $photoSort = new PhotoSort();
+
+        $path = sys_get_temp_dir() . '/testDestinyPath\ \(test\)';
+        $photoSort->setDestinyPath($path);
+    }
+
+
+    /**
+     * @test
+     */
     public function testPhotoSortCopy()
     {
         $fixtureDir = getcwd() . '/tests/fixtures';
         $this->createTestDir($fixtureDir, $this->testDir);
-        $varDir = '/tmp/var';
+        $varDir = sys_get_temp_dir() . '/var';
 
         $photoSort = new PhotoSort();
         $photoSort->copy($this->testDir, $varDir);

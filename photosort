@@ -3,11 +3,11 @@
 require __DIR__.'/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use \PhotoSort\task\dirCopyCommand;
-use \PhotoSort\task\dirRenameCommand;
+use PhotoSort\task\dirCopyCommand;
+use PhotoSort\task\dirRenameCommand;
 
 
-$appVersion = '1.0.0-DEV';
+$appVersion = '1.0.1-DEV';
 
 $app = new Application('Photo Sort', $appVersion);
 $app->add(new dirCopyCommand());

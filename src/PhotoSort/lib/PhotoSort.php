@@ -56,8 +56,12 @@ class PhotoSort
      */
     public function setDestinyPath($destinyPath)
     {
-        if (!preg_match('~^(\.*)([\w/\s\\\]*)$~u', $destinyPath)) {
-            throw new \RuntimeException("The destiny path is not valid.\nDestiny path: ".$destinyPath);
+        if (!is_dir($destinyPath)) {
+            if (!mkdir($destinyPath, 0755, true)) {
+                throw new \RuntimeException("The destiny path is not valid.\nDestiny path: ".$destinyPath);
+            } else {
+                rmdir($destinyPath);
+            }
         }
 
         $this->destinyPath = $this->sanitizePath($destinyPath);
