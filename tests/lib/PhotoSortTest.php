@@ -16,8 +16,8 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->fooDir = './tests/testDirectories/foo';
-        $this->varDir = './tests/testDirectories/var';
+        $this->fooDir = getcwd() . '/tests/testDirectories/foo';
+        $this->varDir = getcwd() . '/tests/testDirectories/var';
     }
 
 
@@ -105,7 +105,7 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
      */
     private function copyFixturesIntoDir($dir)
     {
-        $fixturesDir = './tests/fixtures';
+        $fixturesDir = getcwd() . '/tests/fixtures';
 
         if ($dh = opendir($fixturesDir)) {
             while(false !== ( $file = readdir($dh)) ) {
