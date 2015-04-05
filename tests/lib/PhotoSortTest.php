@@ -7,7 +7,18 @@ use PhotoSort\lib\PhotoSort;
  */
 class PhotoSortTest extends \PHPUnit_Framework_TestCase
 {
-    protected $testDir;
+    protected $fooDir;
+    protected $varDir;
+
+
+    /**
+     * Set Up
+     */
+    protected function setUp()
+    {
+        $this->fooDir = getcwd() . '/tests/testDirectories/foo';
+        $this->varDir = getcwd() . '/tests/testDirectories/var';
+    }
 
 
     /**
@@ -15,11 +26,8 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
-        $this->testDir = sys_get_temp_dir() . '/foo';
-
-        if (is_dir($this->testDir)) {
-            $this->removeDir($this->testDir);
-        }
+        $this->removeContent($this->fooDir);
+        $this->removeContent($this->varDir);
     }
 
 
@@ -49,15 +57,12 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
      */
     public function testPhotoSortCopy()
     {
-        $fixtureDir = getcwd() . '/tests/fixtures';
-        $this->createTestDir($fixtureDir, $this->testDir);
-        $varDir = sys_get_temp_dir() . '/var';
+        $this->copyFixturesIntoDir($this->fooDir);
 
         $photoSort = new PhotoSort();
-        $photoSort->copy($this->testDir, $varDir);
+        $photoSort->copy($this->fooDir, $this->varDir);
 
-        $this->assertFileExists($varDir.'/2015-03-14 12:57:43.jpg');
-        $this->removeDir($varDir);
+        $this->assertFileExists($this->varDir.'/2015-03-14 12:57:43.jpg');
     }
 
 
@@ -66,30 +71,12 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
      */
     public function testPhotoSortRename()
     {
-        $fixtureDir = getcwd() . '/tests/fixtures';
-        $this->createTestDir($fixtureDir, $this->testDir);
+        $this->copyFixturesIntoDir($this->fooDir);
 
         $photoSort = new PhotoSort();
-        $photoSort->rename($this->testDir);
+        $photoSort->rename($this->fooDir);
 
-        $this->assertFileExists($this->testDir.'/2015-03-14 12:57:43.jpg');
-    }
-
-
-    /**
-     * Copy fixture directory structure on another path
-     *
-     * @param string $fixtureDir
-     * @param string $testDir
-     */
-    protected function createTestDir($fixtureDir, $testDir)
-    {
-        if (is_dir($testDir)) {
-            $this->removeDir($testDir);
-        }
-
-        mkdir($testDir, 0755);
-        $this->copyRecursiveDir($fixtureDir, $testDir);
+        $this->assertFileExists($this->fooDir.'/2015-03-14 12:57:43.jpg');
     }
 
 
@@ -98,42 +85,35 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
      *
      * @param string $dir
      */
-    private function removeDir($dir)
+    private function removeContent($dir)
     {
-        $it = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
-        $files = new RecursiveIteratorIterator($it,
-                RecursiveIteratorIterator::CHILD_FIRST);
-        foreach($files as $file) {
-            if ($file->isDir()){
-                rmdir($file->getRealPath());
-            } else {
-                unlink($file->getRealPath());
+        if ($dh = opendir($dir)) {
+            while (($file = readdir($dh)) !== false) {
+                if (( $file != '.' ) && ( $file != '..' )) {
+                    unlink($dir .'/'. $file);
+                }
             }
+            closedir($dh);
         }
-        rmdir($dir);
     }
 
 
     /**
-     * Copy directory recursive
+     * Copy fixture files on test dir
      *
-     * @param string $src
-     * @param string $dst
+     * @param string $dir
      */
-    private function copyRecursiveDir($src, $dst)
+    private function copyFixturesIntoDir($dir)
     {
-        $dir = opendir($src);
-        @mkdir($dst);
-        while(false !== ( $file = readdir($dir)) ) {
-            if (( $file != '.' ) && ( $file != '..' )) {
-                if ( is_dir($src . '/' . $file) ) {
-                    $this->copyRecursiveDir($src . '/' . $file,$dst . '/' . $file);
-                }
-                else {
-                    copy($src . '/' . $file,$dst . '/' . $file);
+        $fixturesDir = getcwd() . '/tests/fixtures';
+
+        if ($dh = opendir($fixturesDir)) {
+            while(false !== ( $file = readdir($dh)) ) {
+                if (( $file != '.' ) && ( $file != '..' )) {
+                    copy($fixturesDir . '/' . $file, $dir . '/' . $file);
                 }
             }
         }
-        closedir($dir);
+        closedir($dh);
     }
 }
