@@ -89,7 +89,7 @@ class PhotoSortTest extends \PHPUnit_Framework_TestCase
     {
         if ($dh = opendir($dir)) {
             while (($file = readdir($dh)) !== false) {
-                if (( $file != '.' ) && ( $file != '..' )) {
+                if (( $file != '.' ) && ( $file != '..' ) && ($file != '.gitignore')) {
                     unlink($dir .'/'. $file);
                 }
             }
