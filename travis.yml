@@ -6,6 +6,4 @@ php:
     - 5.6
 
 before_script:
-    - git config --global user.email test@test.com
-    - git config --global user.name "Test User"
-    - composer install --dev --no-interaction --prefer-source
+    - composer install
