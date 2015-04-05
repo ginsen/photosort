@@ -22,7 +22,7 @@
   "compression": "GZ",
   "git-version": "package_version",
   "main": "photosort",
-  "output": "photosort.phar",
+  "output": "bin/photosort.phar",
   "stub": true,
   "chmod": "0755"
 }
