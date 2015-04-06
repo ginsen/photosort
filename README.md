@@ -2,6 +2,9 @@ PhotoSort
 =========
 
 [![Build Status](https://travis-ci.org/ginsen/photosort.svg?branch=master)](https://travis-ci.org/ginsen/photosort)
+[![Latest Stable Version](https://poser.pugx.org/ginsen/photosort/v/stable.svg)](https://packagist.org/packages/ginsen/photosort)
+[![Latest Unstable Version](https://poser.pugx.org/ginsen/photosort/v/unstable.svg)](https://packagist.org/packages/ginsen/photosort)
+[![License](https://poser.pugx.org/ginsen/photosort/license.svg)](https://packagist.org/packages/ginsen/photosort)
 
 
 What is it?
