@@ -42,3 +42,11 @@ Now you may want check version app.
 ```bash
 $ photosort --version
 ```
+
+### As a Global Composer Install
+
+This is probably the best way when you have other tools like phpunit and other tools installed in this way:
+
+```bash
+$ composer global require ginsen/photosort --prefer-source
+```
