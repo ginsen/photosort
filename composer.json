@@ -2,7 +2,8 @@
     "name": "ginsen/photosort",
     "description": "A small app to rename images files by created date",
     "homepage": "https://github.com/ginsen/photosort",
-    "keywords": ["console", "filesystem", "php"],
+    "keywords": ["console", "filesystem", "php", "photography", "photo"],
+    "type": "project",
     "license": "MIT",
     "authors": [
         {
@@ -37,5 +38,6 @@
     "bin": [
         "bin/photosort.phar",
         "photosort"
-    ]
+    ],
+    "minimum-stability": "dev"
 }
