@@ -1,6 +1,6 @@
 {
     "name": "ginsen/photosort",
-    "description": "A small app to rename images files by created date",
+    "description": "A small app to rename or copy images files by Exif information of image",
     "homepage": "https://github.com/ginsen/photosort",
     "keywords": ["console", "filesystem", "php", "photography", "photo"],
     "type": "project",
