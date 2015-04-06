@@ -45,6 +45,8 @@ $ photosort --version
 
 ### As a Global Composer Install
 
+Alternatively, you may use Composer to download and install PhotoSort as well as its dependencies.
+
 This is probably the best way when you have other tools like phpunit and other tools installed in this way:
 
 ```bash
