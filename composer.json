@@ -26,11 +26,6 @@
     "support": {
         "issues": "https://github.com/ginsen/photosort/issues"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.1-dev"
-        }
-    },
     "config": {
         "bin-dir": "bin",
         "vendor-dir": "vendor"
@@ -38,6 +33,5 @@
     "bin": [
         "bin/photosort.phar",
         "photosort"
-    ],
-    "minimum-stability": "dev"
+    ]
 }

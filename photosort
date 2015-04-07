@@ -7,7 +7,7 @@ use PhotoSort\task\dirCopyCommand;
 use PhotoSort\task\dirRenameCommand;
 
 
-$appVersion = '1.0.1';
+$appVersion = '1.0';
 
 $app = new Application('Photo Sort', $appVersion);
 $app->add(new dirCopyCommand());
