@@ -46,12 +46,10 @@ Now you may want check version app.
 $ photosort --version
 ```
 
-### As a Global Composer Install
+### As a Composer Install
 
 Alternatively, you may use Composer to download and install PhotoSort as well as its dependencies.
 
-This is probably the best way when you have other tools like phpunit and other tools installed in this way:
-
 ```bash
-$ composer global require ginsen/photosort --prefer-source
+$ composer require ginsen/photosort
 ```

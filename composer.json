@@ -31,7 +31,6 @@
         "vendor-dir": "vendor"
     },
     "bin": [
-        "bin/photosort.phar",
-        "photosort"
+        "bin/photosort.phar"
     ]
 }
