@@ -15,10 +15,10 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "symfony/console": "2.6"
+        "symfony/console": "~2.6"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.5.0"
+        "phpunit/phpunit": "~4.5"
     },
     "autoload": {
         "psr-4": { "PhotoSort\\": "src/PhotoSort/" }
